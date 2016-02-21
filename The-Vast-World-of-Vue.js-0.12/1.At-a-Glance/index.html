@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>At a Glance</title>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="container" style="margin-top: 2em 0;">
+	<div id="tasks">
+		<div v-show="remaining.length">
+			<h1>
+				Tasks <span>({{remaining.length}})</span>
+			</h1>
+			<ol class="list-group">
+				<li
+					v-for="task in tasks | inProcess"
+					class="list-group-item"
+					>
+						<span v-on:dblclick="editTask(task)">
+							{{task.body}}
+						</span>
+
+					<button 
+						v-on:click="removeTask(task)"
+					>
+						&#10007;
+					</button>
+					<button v-on:click="toggleTaskCompletion(task)">
+						&#10004;
+					</button>
+				</li>
+			</ol>
+		</div>
+		<form v-on:submit.prevent="addTask">
+			<div class="form-group">
+				<input
+					type="text" 
+					class="form-control" 
+					placeholder="add Task"
+					v-model="newTask"
+					v-el:newTask
+				>
+			</div>
+
+			<button class="btn btn-primary">
+				Add Task
+			</button>
+			<button v-on:click="completeAll" class="btn btn-success">
+				Mark All as Completed
+			</button>
+		</form>
+
+		<div v-if="completions.length">
+			<h2>Completed({{completions.length}})</h2>
+			<ol class="list-group">
+				<li v-for="task in tasks | filterBy true in 'completed'"
+					class="list-group-item"
+				>
+					{{task.body}}
+					<button 
+						v-on:click="toggleTaskCompletion(task)"
+					>
+						&#10007;
+					</button>
+				</li>
+			</ol>
+			<button v-on:click="clearCompleted" class="btn btn-danger">Clear Completed</button>
+		</div>
+
+		<pre>{{$data | json}}</pre>
+	</div>
+</div>
+<script src="vue.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue's Event System</title>
+	<link rel="stylesheet" href="app.css">
+</head>
+<body>
+	<div class="container" id="demo">
+		<input type="text" 
+			v-on:keyup.enter="onKeyUp"
+			v-on:blur="onBlur"
+		>
+	</div>
+<script src="vue.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

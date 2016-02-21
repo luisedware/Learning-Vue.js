@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>Rendering lists of Data</title>
+	<link rel="stylesheet" href="app.css">
+</head>
+<body>
+	<div class="container" id="demo">
+		<ul>
+			<li v-for="name in names">{{name}}</li>
+		</ul>
+
+		<input 
+			type="text" 
+			placeholder="add a new name" 
+			v-model="newName"
+			v-on:blur="addName">
+	</div>
+<script src="vue.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
