@@ -1,12 +1,3 @@
-#tasks{
-	margin-top: 2em 0;
-}
-li button{
-	font-weight: bold;
-	background: none;
-	border: 0;
+.active{
 	color:red;
-	padding: 0;
-	float: right;
-	margin-left:10px ;
 }
