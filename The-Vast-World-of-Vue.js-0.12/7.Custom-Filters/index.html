@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="app.css">
-</head>
-<body>
-	
-<script src="vue.js"></script>
-<script src="app.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="bootstrap.css">
+		<link rel="stylesheet" href="app.css">
+	</head>
+	<body>
+		<div id="demo">
+			<div class="radio">
+				<label>
+					<input type="radio" name="gender" v-model="gender" value="all"> All
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" name="gender" v-model="gender" value="Male"> Male
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" name="gender" v-model="gender" value="Female"> Female
+				</label>
+			</div>
+			<ul>
+				<li v-for="person in people | gender">{{person.name}}:{{person.gender}}</li>
+			</ul>
+			<pre>{{$data |json}}</pre>
+		</div>
+		<script src="vue.js"></script>
+		<script src="app.js"></script>
+	</body>
 </html>
