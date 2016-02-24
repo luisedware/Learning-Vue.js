@@ -4,9 +4,17 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="app.css">
+	<link rel="stylesheet" href="bootstrap.css">
 </head>
-<body>
-	
+<body id="demo" class="container">
+	<script id="coupon-template" type="x-template">
+		<input type="text" v-model="coupon" v-on:blur="whenCouponHasBeenEntered">
+		<span class="label" v-text="message" style="color:red;">This coupon is not valid.</span>
+	</script>
+	<coupon></coupon>
+	<coupon></coupon>
+	<coupon></coupon>
+	<coupon></coupon>
 <script src="vue.js"></script>
 <script src="app.js"></script>
 </body>
