@@ -4,9 +4,17 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="app.css">
+	<link rel="stylesheet" href="bootstrap.css">
 </head>
-<body>
-	
+<body id="demo" class="container">
+	<form v-on:submit="check">
+		<button v-sure="'Are you sure?'" class="btn btn-success">
+			Click Me
+		</button>
+		<button v-confirm="Are you sure?" class="btn btn-primary">
+			Click Me
+		</button>
+	</form>
 <script src="vue.js"></script>
 <script src="app.js"></script>
 </body>
