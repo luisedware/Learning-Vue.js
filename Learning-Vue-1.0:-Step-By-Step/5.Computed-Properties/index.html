@@ -8,11 +8,26 @@
 </head>
 
 <body>
+    <h1>{{ fullName }}</h1>
+    <input type="type" name="first" v-model="first" placeholder="First Name">
+    <input type="type" name="last" v-model="last" placeholder="Last Name">
     <script type="text/javascript" src="assets/js/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
     <script type="text/javascript">
-
+    new Vue({
+        el: 'body',
+        data: {
+            first: 'Jeffrey',
+            last: 'Way',
+            fullName: "Jeffrey Way"
+        },
+        computed: {
+            fullName: function() {
+                return this.first + ' ' + this.last;
+            }
+        }
+    });
     </script>
 </body>
 
