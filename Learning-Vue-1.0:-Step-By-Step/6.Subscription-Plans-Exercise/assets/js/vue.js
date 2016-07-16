@@ -9901,6 +9901,7 @@ var template = Object.freeze({
     Vue.set = set;
     Vue['delete'] = del;
     Vue.nextTick = nextTick;
+    Vue.config.devtools = true;
 
     /**
      * The following are exposed for advanced usage / plugins
