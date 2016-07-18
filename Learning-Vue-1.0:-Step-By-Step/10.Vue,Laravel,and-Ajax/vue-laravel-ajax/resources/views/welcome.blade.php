@@ -10,7 +10,6 @@
         </div>
         <template id="tasks-template">
             <h1>My Tasks</h1>
-
             <ul class="list-group">
                 <li class="list-group-item" v-for="task in list">
                     @{{task.body}}
@@ -19,7 +18,9 @@
             </ul>
         </template>
         <script type="text/javascript" src="/assets/js/jquery-3.0.0.js"></script>
-        <script type="text/javascript" src="/assets/js/vue.js"></script>
+        <script type="text/javascript" src="/assets/js/vue.js"></script>\
+        <script type="text/javascript" src="/assets/js/vue-resource.min.js"></script>
         <script type="text/javascript" src="/assets/js/main.js"></script>
+
     </body>
 </html>
