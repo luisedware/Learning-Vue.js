@@ -11,6 +11,11 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::delete('/posts/{post}', function (App\Post $post) {
+    $post->delete();
 });

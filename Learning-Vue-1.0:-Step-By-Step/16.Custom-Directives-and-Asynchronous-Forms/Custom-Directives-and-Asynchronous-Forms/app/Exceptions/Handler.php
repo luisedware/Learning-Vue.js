@@ -42,6 +42,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($request->wantsJson()) {
+            return response([
+                'success' => false,
+                'message' => $e->getMessage()
+            ],404);
+        }
+
         if ($e instanceof ModelNotFoundException) {
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }

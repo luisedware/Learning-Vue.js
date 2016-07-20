@@ -5,7 +5,7 @@
     </head>
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
     <body>
-        <div class="container">
+        <div id="app" class="container">
             <alert>
                 <strong>General!</strong>
                 Your account has not been updated.

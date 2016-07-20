@@ -8,11 +8,43 @@
 </head>
 
 <body>
+    <message @new-message="handleNewMessage"></message>
+    <pre>{{$data|json}}</pre>
     <script type="text/javascript" src="assets/js/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
     <script type="text/javascript">
+    Vue.component('message', {
+        template: '<input v-model="message" @keyup.enter="storeMessage">',
+        data: function() {
+            return {
+                message: ''
+            }
+        },
 
+        methods: {
+            storeMessage: function() {
+                this.$dispatch('new-message', this.message);
+
+                this.message = '';
+            }
+        }
+    });
+
+    new Vue({
+        el: 'body',
+
+        data: {
+            messages: []
+        },
+
+        methods: {
+            handleNewMessage: function(message) {
+
+                this.messages.push(message);
+            }
+        }
+    });
     </script>
 </body>
 
