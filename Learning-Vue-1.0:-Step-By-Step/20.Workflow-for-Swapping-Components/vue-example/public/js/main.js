@@ -10527,8 +10527,6 @@ new _vue2['default']({
     components: {
         HomeView: _componentsHomeViewVue2['default']
     }
-    // <home-view></home-view>
-    // <component is="home-view"></component>
 });
 
 },{"./components/HomeView.vue":4,"vue":3}]},{},[5]);
