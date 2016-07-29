@@ -8,13 +8,11 @@
 
 <body>
 <div class="container">
-    <graph :labels="['January','February','March']"
-    :values="[10,42,4]"
-    color="red"></graph>
+    <graph
+        :labels="['January','February','March']"
+        :values="[10,42,4]"
+    ></graph>
 
-     <graph :labels="['Aprit','May','June']"
-    :values="[10,42,4]"
-    color="green"></graph>
 </div>
 <script src="/js/main.js"></script>
 </body>

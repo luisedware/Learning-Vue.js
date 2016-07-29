@@ -24763,34 +24763,40 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = {
 
-    template: '<canvas width="400" height="50"></canvas>',
+    template: '\n        <div>\n            <canvas width="400" height="50" v-el:canvas></canvas>\n            <div class="legend">{{{legend}}}</div>\n        </div>\n    ',
 
-    props: ['labels', 'values', 'color'],
+    props: {
+        labels: {},
+        values: {},
+        color: {
+            default: 'rgba(220,220,220,0.2)'
+        }
+    },
 
+    data: function data() {
+        return { legend: '' };
+    },
     ready: function ready() {
-        var randomScalingFactor = function randomScalingFactor() {
-            return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-        };
-        var randomColorFactor = function randomColorFactor() {
-            return Math.round(Math.random() * 255);
-        };
-        var randomColor = function randomColor() {
-            return 'rgba(' + randomColorFactor() + ',' + randomColorFactor() + ',' + randomColorFactor() + ',.7)';
-        };
 
-        var barChartData = {
+        var data = {
             labels: this.labels,
             datasets: [{
-                label: 'Dataset 1',
-                backgroundColor: this.color,
-                data: this.values
+                label: 'Monthly Points',
+                data: this.values,
+                backgroundColor: 'red'
+            }, {
+                label: 'Hello Wrold',
+                data: [20, 82, 9],
+                backgroundColor: 'green'
             }]
         };
 
-        new _chart2.default(this.$el.getContext("2d"), {
+        var chart = new _chart2.default(this.$els.canvas.getContext("2d"), {
             type: 'line',
-            data: barChartData
+            data: data
         });
+
+        this.legend = chart.generateLegend();
     }
 };
 

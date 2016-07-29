@@ -4,8 +4,8 @@ import Graph from './components/Graph';
 
 new Vue({
     el: 'body',
-    ready: function () {
+    ready: function() {
 
     },
-    components: {Graph}
+    components: { Graph }
 });

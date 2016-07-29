@@ -2,33 +2,46 @@ import Chart from 'chart.js';
 
 export default {
 
-    template: '<canvas width="400" height="50"></canvas>',
+    template: `
+        <div>
+            <canvas width="400" height="50" v-el:canvas></canvas>
+            <div class="legend">{{{legend}}}</div>
+        </div>
+    `,
 
-    props: ['labels', 'values','color'],
+    props: {
+        labels: {},
+        values: {},
+        color: {
+            default: 'rgba(220,220,220,0.2)'
+        }
+    },
+
+    data() {
+        return { legend: '' }
+    },
 
     ready() {
-        var randomScalingFactor = function() {
-            return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-        };
-        var randomColorFactor = function() {
-            return Math.round(Math.random() * 255);
-        };
-        var randomColor = function() {
-            return 'rgba(' + randomColorFactor() + ',' + randomColorFactor() + ',' + randomColorFactor() + ',.7)';
-        };
 
-        var barChartData = {
+
+        var data = {
             labels: this.labels,
             datasets: [{
-                label: 'Dataset 1',
-                backgroundColor: this.color,
-                data: this.values
+                label: 'Monthly Points',
+                data: this.values,
+                backgroundColor: 'red'
+            }, {
+                label: 'Hello Wrold',
+                data: [20, 82, 9],
+                backgroundColor: 'green'
             }]
         };
 
-        new Chart(this.$el.getContext("2d"), {
+        const chart = new Chart(this.$els.canvas.getContext("2d"), {
             type: 'line',
-            data: barChartData
+            data: data
         });
+
+        this.legend = chart.generateLegend();
     }
 };
