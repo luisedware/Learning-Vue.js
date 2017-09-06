@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Vue 1.0:Step By Step</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <style type="text/css">
+    .Alert {
+        position: relative;
+        background-color: #ddd;
+        border: 1px solid darken(#ddd, 10%);
+        padding: 1em;
+    }
+
+    .Alert-Success {
+        background-color: lighten(green, 70%);
+        border: 1px solid lighten(green, 30%);
+    }
+
+    .Alert-Error {
+        background-color: lighten(red, 70%);
+        border: 1px solid lighten(red, 30%);
+    }
+
+    .Alert__Close {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <alert type="success">
+        <strong>Success!</strong> Your account has been updated.
+    </alert>
+    <alert type="error">
+        <strong>Success!</strong> Your account has been updated.
+    </alert>
+    <template id="alert-template">
+        <div :class="alertClasses" v-show="show">
+            <slot></slot>
+            <span class="Alert__close" @click="show = false">X </span>
+        </div>
+    </template>
+    <script type="text/javascript" src="assets/js/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript">
+    Vue.component('alert', {
+        template: "#alert-template",
+
+        props: ['type'],
+
+        data: function() {
+            return {
+                show: true
+            }
+        },
+
+        computed: {
+            alertClasses: function() {
+                var type = this.type;
+
+                return {
+                    'Alert': true,
+                    'Alert-Success': type == 'success',
+                    'Alert-Error': type == 'error'
+                };
+            }
+        }
+    });
+
+    new Vue({
+        el: 'body'
+    });
+    </script>
+</body>
+
+</html>

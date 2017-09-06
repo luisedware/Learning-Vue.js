@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Vue 1.0:Step By Step</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+</head>
+
+<body>
+	<component is="about-page" inline-template>
+		<h2>about-page</h2>
+		<button @click="doSomeThingElse">Click Me</button>
+	</component>
+    <script type="text/javascript" src="assets/js/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript">
+    Vue.component('home-page', {
+        methods: {
+            doSomeThingElse: function() {
+            	alert('Something else');
+            }
+        }
+    });
+
+    Vue.component('about-page', {
+        methods: {
+            doSomeThingElse: function() {
+            	alert('Something');
+            }
+        }
+    });
+
+    new Vue({
+        el: 'body'
+    });
+    </script>
+</body>
+
+</html>

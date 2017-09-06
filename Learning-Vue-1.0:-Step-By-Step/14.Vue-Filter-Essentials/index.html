@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Vue 1.0:Step By Step</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1>{{'hello world !'| uppercase}}</h1>
+    <h1>{{'5'|currency}}</h1>
+    <ul>
+    	<li v-for="person in people | role 'admin'">{{person.name}}</li>
+    </ul>
+    <script type="text/javascript" src="assets/js/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript">
+    Vue.filter('role', function(value, role) {
+        return value.filter(function(item){
+            return item.role == role;
+        });
+    });
+
+    new Vue({
+        el: "body",
+        data: {
+            message: 'hello world',
+            people: [{
+                name: 'joe',
+                role: "admin"
+            }, {
+                name: 'susan',
+                role: "admin"
+            }, {
+                name: 'frank',
+                role: "student"
+            }, {
+                name: 'jeffrey',
+                role: "admin"
+            }]
+        }
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Vue 1.0:Step By Step</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <style type="text/css">
+    .completed {
+        text-decoration: line-through;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li :class="{'completed':task.completed}" v-for="task in tasks" @click="task.completed = !task.completed">{{task.body}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="assets/js/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript">
+    new Vue({
+        el: "#app",
+        data: {
+            tasks: [{
+                body: 'Go to the store',
+                completed: false
+            }, {
+                body: 'Go to the bank',
+                completed: false
+            }, {
+                body: 'Go to the doctor',
+                completed: true
+            }]
+        }
+    });
+    </script>
+</body>
+
+</html>
